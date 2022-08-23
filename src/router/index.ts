@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Framework from '@/layout/Framework.vue'
+import Framework from '@/views/layout'
 
 // 异步加载页面组件
-const importPage = (view: string) => () => import(`@/views/${view}.vue`)
+const importPage = (view: string) => () => import(`@/views/${view}`)
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,22 +12,22 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/',
         name: 'Home',
-        component: importPage('Home'),
+        component: importPage('layout/XHome'),
       },
       {
         path: '/system/user',
         name: 'User',
-        component: importPage('system/UserView'),
+        component: importPage('system/user'),
       },
       {
         path: '/system/role',
         name: 'Role',
-        component: importPage('system/RoleView'),
+        component: importPage('system/role'),
       },
       {
         path: '/system/menu',
         name: 'Menu',
-        component: importPage('system/MenuView'),
+        component: importPage('system/menu'),
       },
     ],
   },
