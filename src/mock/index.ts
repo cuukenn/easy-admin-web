@@ -5,7 +5,8 @@ import user from './data/user'
 import role from './data/role'
 import menu from './data/menu'
 import dept from './data/dept'
-const mocks = [...user, ...role, ...menu, ...dept]
+import onlineUser from './data/online-user'
+const mocks = [...user, ...role, ...menu, ...dept, ...onlineUser]
 //设置延时时间
 Mock.setup({
   timeout: '300',

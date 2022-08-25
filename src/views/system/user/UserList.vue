@@ -2,6 +2,7 @@
   <el-table :data="tableData" :fit="true" :border="true">
     <el-table-column prop="username" label="username" align="center" :min-width="160" />
     <el-table-column prop="nickname" label="nickname" align="center" :min-width="160" />
+    <el-table-column prop="tel" label="tel" align="center" :min-width="100" />
     <el-table-column prop="enabled" label="enabled" align="center" :min-width="100" />
     <el-table-column prop="locked" label="locked" align="center" :min-width="80" />
   </el-table>

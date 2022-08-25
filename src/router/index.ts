@@ -10,24 +10,41 @@ const routes: Array<RouteRecordRaw> = [
     component: Framework,
     children: [
       {
-        path: '/',
-        name: 'Home',
-        component: importPage('layout/XHome'),
+        path: '',
+        name: 'Dashboard',
+        component: importPage('dashboard'),
       },
+    ],
+  },
+  {
+    path: '/system',
+    component: Framework,
+    children: [
       {
-        path: '/system/user',
+        path: 'user',
         name: 'User',
         component: importPage('system/user'),
       },
       {
-        path: '/system/role',
+        path: 'role',
         name: 'Role',
         component: importPage('system/role'),
       },
       {
-        path: '/system/menu',
+        path: 'menu',
         name: 'Menu',
         component: importPage('system/menu'),
+      },
+    ],
+  },
+  {
+    path: '/monitor',
+    component: Framework,
+    children: [
+      {
+        path: 'user-online',
+        name: 'User-online',
+        component: importPage('monitor/user-online'),
       },
     ],
   },

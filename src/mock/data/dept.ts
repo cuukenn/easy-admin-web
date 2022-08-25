@@ -1,5 +1,4 @@
-import Mock from 'mockjs'
-import { ResultDto, PageWrapper, Tree } from '@/common/dto'
+import { ResultDto, Tree } from '@/common/dto'
 const data: Tree[] = [
   {
     label: '总部',

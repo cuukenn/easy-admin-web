@@ -1,6 +1,10 @@
 <template>
   <el-table :data="tableData" :fit="true" :border="true">
+    <el-table-column prop="id" label="id" :min-width="140" />
+    <el-table-column prop="name" label="name" :min-width="140" />
     <el-table-column prop="role" label="role" :min-width="140" />
+    <el-table-column prop="createTime" label="createTime" :min-width="140" />
+    <el-table-column prop="updateTime" label="updateTime" :min-width="140" />
   </el-table>
 </template>
 <script lang="ts" setup>
