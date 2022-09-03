@@ -1,6 +1,6 @@
 <template>
   <el-scrollbar>
-    <div style="text-align: center; height: 40px; line-height: 40px">
+    <div style="text-align: center; height: 40px; line-height: 40px; cursor: pointer" @click="() => router.push('/')">
       <el-icon>
         <Service />
       </el-icon>
@@ -28,6 +28,7 @@
 import { Ref, ref } from 'vue'
 import { MenuItem } from '@/views/system/dto'
 import { Menu as IconMenu } from '@element-plus/icons-vue'
+import router from '@/router'
 const menus: Ref<Array<MenuItem>> = ref([
   {
     index: '/system',

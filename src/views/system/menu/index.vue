@@ -7,7 +7,7 @@
   </el-container>
 </template>
 <script lang="ts" setup>
-import MenuList from './MenuList.vue'
+import MenuList from './components/MenuList.vue'
 import ListOption from '@/components/ListOption.vue'
 </script>
 <style scoped></style>

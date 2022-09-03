@@ -3,10 +3,9 @@ import { ElMessage } from 'element-plus'
 import Axios from 'axios'
 import { ResultDto } from './dto'
 import Api from './Api'
-import config from './config'
 import { templateResolve } from './utils/string'
 
-const baseUrl: string = config.baseApiUrl as string
+const baseUrl: string = import.meta.env.VITE_APP_BASE_API_URL as string
 
 /**
  * 通知错误消息

@@ -2,12 +2,12 @@
   <el-container>
     <el-main>
       <list-option></list-option>
-      <online-user-list></online-user-list>
+      <role-list></role-list>
     </el-main>
   </el-container>
 </template>
 <script lang="ts" setup>
+import RoleList from './components/RoleList.vue'
 import ListOption from '@/components/ListOption.vue'
-import OnlineUserList from './OnlineUserList.vue'
 </script>
 <style scoped></style>

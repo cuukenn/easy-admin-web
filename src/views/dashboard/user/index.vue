@@ -20,7 +20,7 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import OnlineUserPie from './onlineUserPie.vue'
-import OnlineUserLocationPie from './onlineUserLocationPie.vue'
+import OnlineUserPie from './components/onlineUserPie.vue'
+import OnlineUserLocationPie from './components/onlineUserLocationPie.vue'
 </script>
 <style scoped></style>

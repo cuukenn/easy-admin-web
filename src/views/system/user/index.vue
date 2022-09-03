@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width="200px">
+    <el-aside width="200px" class="aside">
       <el-main>
         <dept-tree></dept-tree>
       </el-main>
@@ -16,9 +16,13 @@
   </el-container>
 </template>
 <script lang="ts" setup>
-import UserList from './UserList.vue'
+import UserList from './components/UserList.vue'
 import SearchHeader from '@/components/SearchHeader.vue'
 import ListOption from '@/components/ListOption.vue'
-import DeptTree from './DeptTree.vue'
+import DeptTree from './components/DeptTree.vue'
 </script>
-<style scoped></style>
+<style scoped>
+.aside {
+  border-right: 1px dotted black;
+}
+</style>
