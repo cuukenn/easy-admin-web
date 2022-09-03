@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import SystemDashboard from './system/systemDashboard.vue'
-import UserDashboard from './user/userDashboard.vue'
+import SystemDashboard from './system/index.vue'
+import UserDashboard from './user/index.vue'
 </script>
 <style scoped></style>

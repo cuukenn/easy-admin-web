@@ -7,10 +7,6 @@ import menu from './data/menu'
 import dept from './data/dept'
 import onlineUser from './data/online-user'
 const mocks = [...user, ...role, ...menu, ...dept, ...onlineUser]
-//设置延时时间
-Mock.setup({
-  timeout: '300',
-})
 export function mockXHR() {
   let item: MockParams
   for (item of mocks) {

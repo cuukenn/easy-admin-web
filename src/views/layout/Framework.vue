@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import XMenu from './XMenu.vue'
-import XHeader from './XHeader.vue'
+import XMenu from './components/XMenu.vue'
+import XHeader from './components/XHeader.vue'
 </script>
 <style scoped></style>

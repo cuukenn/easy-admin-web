@@ -14,6 +14,6 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import SystemBizLog from './systemBizLog.vue'
+import SystemBizLog from './components/systemBizLog.vue'
 </script>
 <style scoped></style>
