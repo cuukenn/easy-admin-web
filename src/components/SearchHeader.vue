@@ -12,8 +12,8 @@
         </el-input>
       </el-col>
       <el-col :span="8">
-        <el-select placeholder="账户状态">
-          <template #prefix>001</template>
+        <el-select>
+          <template #prefix>账户状态</template>
           <el-option v-for="item in accountStatus" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
       </el-col>

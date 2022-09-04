@@ -1,7 +1,12 @@
 <template>
   <el-container>
-    <el-aside width="200px" class="aside">
+    <el-aside min-width="160px" class="aside">
       <el-main>
+        <el-input placeholder="请输入部门名称">
+          <template #prefix
+            ><el-icon style="margin-right: 10px; margin-top: 1px"> <search /> </el-icon
+          ></template>
+        </el-input>
         <dept-tree></dept-tree>
       </el-main>
     </el-aside>

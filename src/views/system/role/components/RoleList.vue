@@ -6,6 +6,13 @@
     <el-table-column prop="createTime" label="createTime" :min-width="140" />
     <el-table-column prop="updateTime" label="updateTime" :min-width="140" />
   </el-table>
+  <el-pagination
+    small
+    background
+    layout="prev, pager, next, jumper, ->,sizes, total"
+    :total="50"
+    :page-sizes="[5, 10, 20, 50]"
+  />
 </template>
 <script lang="ts" setup>
 import { roleApi } from '@/views/system/api'
