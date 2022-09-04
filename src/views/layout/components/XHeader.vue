@@ -1,38 +1,45 @@
 <template>
   <div class="toolbar">
-    <div class="header">
+    <div>
       <el-breadcrumb :separator-icon="ArrowRight">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item v-for="item in breadCrumbs" :key="item.path">{{ item.title }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="action-group">
-      <el-icon style="margin-right: 10px; margin-top: 1px">
+    <div>
+      <div></div>
+      <el-icon>
         <search />
       </el-icon>
-      <el-icon style="margin-right: 10px; margin-top: 1px">
+      <el-icon>
         <message />
       </el-icon>
-      <div style="display: inline-block; margin-right: 9px">
-        <el-dropdown>
-          <el-icon style="margin-right: 10px; margin-top: 1px"><setting /></el-icon>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>action1</el-dropdown-item>
-              <el-dropdown-item>action2</el-dropdown-item>
-              <el-dropdown-item>action3</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        <span>settings</span>
-      </div>
+      <el-dropdown :style="{ width: '160px', cursor: 'pointer' }">
+        <template #default>
+          <span class="el-dropdown-link">
+            <el-icon class="el-icon--right">
+              <setting />
+            </el-icon>
+            设置
+          </span>
+        </template>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item>个人中心</el-dropdown-item>
+            <el-dropdown-item @click="openThemeOption">主题设置</el-dropdown-item>
+            <el-dropdown-item>退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
+  <XTheme ref="ThemeOptionRef"></XTheme>
 </template>
 <script lang="ts" setup>
 import router from '@/router'
-import { ArrowRight } from '@element-plus/icons-vue'
+import { ArrowRight, Pointer } from '@element-plus/icons-vue'
 import { Ref, ref, watch } from 'vue'
+import XTheme from './XTheme.vue'
 interface BreadCrumb {
   path?: string
   title?: string
@@ -51,6 +58,10 @@ const resolveBreadCrumb = (path: string): Array<BreadCrumb> => {
   }
   return rs
 }
+const openThemeOption = () => {
+  ThemeOptionRef.value.open()
+}
+const ThemeOptionRef = ref()
 const breadCrumbs: Ref<Array<BreadCrumb>> = ref(resolveBreadCrumb(router.currentRoute.value.path))
 watch(
   () => router.currentRoute.value.path,
@@ -66,10 +77,20 @@ watch(
   align-items: center;
   justify-content: center;
   height: 100%;
-  right: 20px;
+  width: 100%;
 }
-.toolbar > .action-group {
-  position: absolute;
-  right: 20px;
+.toolbar > *:first-child {
+  width: 100%;
+}
+.toolbar > *:last-child {
+  min-width: 240px;
+  display: inline-flex;
+  align-items: center;
+}
+.toolbar > *:last-child > *:first-child {
+  width: 100%;
+}
+.toolbar > *:last-child > *:nth-child(n + 2) {
+  margin-right: 10px;
 }
 </style>
