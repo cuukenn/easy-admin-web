@@ -8,7 +8,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { mockXHR } from '@/mock/index'
-if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_APP_MOCKJS_ENABLED) {
+if (import.meta.env.MODE === 'development' && import.meta.env.VITE_APP_MOCKJS_ENABLED) {
   mockXHR()
 }
 const app = createApp(App)

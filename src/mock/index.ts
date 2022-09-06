@@ -1,5 +1,4 @@
 import Mock from 'mockjs'
-import { API_PREFIX } from '@/common/config'
 import { MockParams } from './typing'
 import user from './data/user'
 import role from './data/role'
@@ -10,6 +9,6 @@ const mocks = [...user, ...role, ...menu, ...dept, ...onlineUser]
 export function mockXHR() {
   let item: MockParams
   for (item of mocks) {
-    Mock.mock(new RegExp(API_PREFIX + item.url), item.type || 'get', item.response)
+    Mock.mock(new RegExp(item.url), item.type || 'get', item.response)
   }
 }

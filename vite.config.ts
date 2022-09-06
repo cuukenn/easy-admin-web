@@ -12,9 +12,7 @@ export default defineConfig({
       mockPath: './src/mock',
     }),
   ],
-  define: {
-    'process.env': {},
-  },
+  base: '/x-admin-web',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
