@@ -33,6 +33,7 @@ defineExpose({ open, close, show })
   align-items: center;
   margin: 5px 0px;
   width: 100%;
+  justify-content: space-between;
 }
 .option > *:first-child {
   width: 100%;
