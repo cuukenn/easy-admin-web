@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo use 'yarn deploy:github' or 'yarn deploy:gitee' instead",
+    "deploy:github": "gh-pages -d dist -f -r git@github.com:cuukenn/x-admin-web.git",
+    "deploy:gitee": "gh-pages -d dist -f -r git@gitee.com:cuukenn/cuukenn.gitee.io.git"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
