@@ -12,7 +12,7 @@
         <search />
       </el-icon>
       <el-icon>
-        <Message />
+        <message />
       </el-icon>
       <el-dropdown :style="{ width: '160px', cursor: 'pointer' }">
         <template #default>
