@@ -1,0 +1,1 @@
+import{A as e}from"./ListOption-c33155bc.js";const s={list:e.create("/sys/user/list","get")},r={list:e.create("/sys/role/list","get")},i={list:e.create("/sys/menu/list","get"),tree:e.create("/sys/menu/tree","get")},a={tree:e.create("/sys/dept/tree","get")};export{a as d,i as m,r,s as u};
