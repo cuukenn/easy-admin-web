@@ -28,7 +28,7 @@ export default defineConfig({
           name: 'element-plus',
           var: 'ElementPlus',
           path: 'dist/index.full.min.js',
-          css: 'dist/index.css',
+          css: ['dist/index.css', 'theme-chalk/dark/css-vars.css'],
         },
         {
           name: '@element-plus/icons-vue',
