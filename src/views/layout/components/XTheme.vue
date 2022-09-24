@@ -14,7 +14,7 @@
   </el-drawer>
 </template>
 <script lang="ts" setup>
-import { ref, defineExpose } from 'vue'
+import { ref } from 'vue'
 import { useDark, useToggle } from '@vueuse/core'
 const open = () => {
   show.value = true

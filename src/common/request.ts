@@ -1,11 +1,11 @@
 import router from '@/router'
-import { ElMessage } from 'element-plus'
 import Axios from 'axios'
-import { ResultDto } from './dto'
+import { ElMessage } from 'element-plus'
 import Api from './Api'
+import { ResultDto } from './dto'
 import { templateResolve } from './utils/string'
 
-const baseUrl: string = import.meta.env.VITE_APP_BASE_API_URL as string
+const baseUrl: string = process.env.VITE_APP_BASE_API_URL as string
 
 /**
  * 通知错误消息

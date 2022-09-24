@@ -1,3 +1,5 @@
+import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import '@/assets/css/main.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import ElementPlus from 'element-plus'
@@ -6,7 +8,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { mockXHR } from '@/mock/index'
-if (import.meta.env.MODE === 'development' && import.meta.env.VITE_APP_MOCKJS_ENABLED) {
+console.log(process.env)
+if (process.env.NODE_ENV === 'development' && process.env.VITE_APP_MOCKJS_ENABLED) {
   mockXHR()
 }
 const app = createApp(App)
