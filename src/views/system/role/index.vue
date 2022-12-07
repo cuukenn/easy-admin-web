@@ -1,13 +1,11 @@
 <template>
   <el-container>
     <el-main>
-      <list-option></list-option>
-      <role-list></role-list>
+      <customer-table></customer-table>
     </el-main>
   </el-container>
 </template>
 <script lang="ts" setup>
-import RoleList from './components/RoleList.vue'
-import ListOption from '@/components/ListOption.vue'
+import CustomerTable from './components/Table.vue'
 </script>
 <style scoped></style>
