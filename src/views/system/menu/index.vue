@@ -1,13 +1,11 @@
 <template>
   <el-container>
     <el-main>
-      <list-option></list-option>
-      <menu-list></menu-list>
+      <customer-table></customer-table>
     </el-main>
   </el-container>
 </template>
 <script lang="ts" setup>
-import MenuList from './components/MenuList.vue'
-import ListOption from '@/components/ListOption.vue'
+import CustomerTable from './components/Table.vue'
 </script>
 <style scoped></style>

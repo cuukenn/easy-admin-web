@@ -1,87 +1,44 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Framework from '@/views/layout/Framework.vue'
-import { defineAsyncComponent } from 'vue'
-const routes: Array<RouteRecordRaw> = [
+const root: RouteRecordRaw = {
+  path: '/',
+  component: () => require('@/layout/Framework'),
+  meta: {
+    title: '',
+  },
+}
+const errors: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    component: Framework,
+    path: '/error/401',
+    component: () => require('@/views/error/401'),
     meta: {
-      title: '',
+      title: '401',
     },
-    children: [
-      {
-        path: '',
-        name: 'Dashboard',
-        component: defineAsyncComponent(() => import(/* @vite-ignore */ `./../views/dashboard/index.vue`)),
-        meta: {
-          title: '监控',
-        },
-      },
-    ],
   },
   {
-    path: '/system',
-    component: Framework,
+    path: '/error/403',
+    component: () => require('@/views/error/403'),
     meta: {
-      title: '系统管理',
+      title: '403',
     },
-    children: [
-      {
-        path: 'user',
-        name: 'User',
-        component: defineAsyncComponent(() => import(/* @vite-ignore */ `./../views/system/user/index.vue`)),
-        meta: {
-          title: '用户管理',
-        },
-      },
-      {
-        path: 'role',
-        name: 'Role',
-        component: defineAsyncComponent(() => import(/* @vite-ignore */ `./../views/system/role/index.vue`)),
-        meta: {
-          title: '角色管理',
-        },
-      },
-      {
-        path: 'menu',
-        name: 'Menu',
-        component: defineAsyncComponent(() => import(/* @vite-ignore */ `./../views/system/menu/index.vue`)),
-        meta: {
-          title: '菜单管理',
-        },
-      },
-    ],
   },
   {
-    path: '/monitor',
-    component: Framework,
+    path: '/error/404',
+    component: () => require('@/views/error/404'),
     meta: {
-      title: '系统监控',
+      title: '404',
     },
-    children: [
-      {
-        path: 'user-online',
-        name: 'User-online',
-        component: defineAsyncComponent(() => import(/* @vite-ignore */ `./../views/monitor/user-online/index.vue`)),
-        meta: {
-          title: '用户在线情况',
-        },
-      },
-    ],
   },
 ]
-
+export const constantRoutes: Array<RouteRecordRaw> = [root, ...errors]
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+  history: createWebHistory(process.env.BASE_URL),
+  routes: constantRoutes,
 })
-
 router.beforeEach((to, from, next) => {
   if (to.path !== from.path) {
     //动态标题
-    document.title = `XAdmin | ${to.meta.title}`
+    document.title = `EasyAdmin | ${to.meta.title}`
   }
   next()
 })
-
 export default router
