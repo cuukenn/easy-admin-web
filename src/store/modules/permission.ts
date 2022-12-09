@@ -2,6 +2,7 @@ import { constantRoutes } from '@/router'
 import api from '@/api/permission/api'
 import { RouteRecordRaw } from 'vue-router'
 import { AuthMenuResVo } from '@/types/permission/types'
+import { MenuTypeEnum } from '@/views/system/menu/types'
 const permission = {
   namespaced: true,
   state: {
@@ -60,7 +61,7 @@ const generateAsyncRouters = (asyncRouters: Array<AuthMenuResVo> | undefined) =>
     const children = generateAsyncRouters(vo.children)
     routers.push({
       path: vo.routerPath ?? '',
-      component: loadComponent(vo.componentPath),
+      component: loadComponent(vo.componentPath, vo.type),
       meta: {
         title: vo.name,
         icon: vo.icon,
@@ -71,8 +72,8 @@ const generateAsyncRouters = (asyncRouters: Array<AuthMenuResVo> | undefined) =>
   }
   return routers
 }
-const loadComponent = (path: string | undefined) => {
-  if (path === undefined) {
+const loadComponent = (path: string | undefined, type: any) => {
+  if (path === undefined || type != MenuTypeEnum.MENU) {
     return null
   }
   return () => require(`@/views/${path}`)

@@ -25,9 +25,9 @@
         </el-form-item>
       </el-col>
     </el-row>
-    <directory-from v-show="formData.type === 0" :form-data="formData" />
-    <menu-from v-show="formData.type === 1" :form-data="formData" />
-    <button-from v-show="formData.type === 2" :form-data="formData" />
+    <directory-from v-show="formData.type === MenuTypeEnum.DIRECTORY" :form-data="formData" />
+    <menu-from v-show="formData.type === MenuTypeEnum.MENU" :form-data="formData" />
+    <button-from v-show="formData.type === MenuTypeEnum.BUTTON" :form-data="formData" />
     <el-form-item>
       <el-button type="primary" @click="handleSubmit(refFrom)">{{ submitTitle }}</el-button>
     </el-form-item>
@@ -40,7 +40,7 @@ import DirectoryFrom from './type/DirectoryFrom.vue'
 import MenuFrom from './type/MenuForm.vue'
 import ButtonFrom from './type/ButtonForm.vue'
 import { api } from '@/api/system/menu/api'
-import { MenuCreateReqVo, MenuUpdateReqVo } from '@/views/system/menu/types'
+import { MenuCreateReqVo, MenuTypeEnum, MenuUpdateReqVo } from '@/views/system/menu/types'
 const data = reactive({
   treeSelectData: [],
   types: [] as any,
@@ -61,13 +61,13 @@ interface Props {
 }
 const props = defineProps<Props>()
 const computedRules = computed(() => {
-  if (props.formData.type === 0) {
+  if (props.formData.type === MenuTypeEnum.DIRECTORY) {
     return rules.directory
   }
-  if (props.formData.type === 1) {
+  if (props.formData.type === MenuTypeEnum.MENU) {
     return rules.menu
   }
-  if (props.formData.type === 2) {
+  if (props.formData.type === MenuTypeEnum.BUTTON) {
     return rules.button
   }
   return {}
