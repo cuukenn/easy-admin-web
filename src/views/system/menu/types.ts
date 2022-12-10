@@ -18,3 +18,8 @@ export declare interface MenuCreateReqVo extends MenuBaseVo {}
 export declare interface MenuUpdateReqVo extends MenuBaseVo {
   id?: any
 }
+export enum MenuTypeEnum {
+  DIRECTORY = 0,
+  MENU = 1,
+  BUTTON = 2,
+}

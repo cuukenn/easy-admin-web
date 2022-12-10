@@ -11,16 +11,7 @@
         <el-icon><icon-menu></icon-menu></el-icon>
         <template #title>首页</template>
       </el-menu-item>
-      <el-sub-menu v-for="(item, index) in menus" :key="index" :index="item.index">
-        <template #title>
-          <el-icon><component v-if="item.icon" :is="item.icon"></component></el-icon>{{ item.title }}
-        </template>
-        <el-menu-item v-for="(subItem, index) in item.subMenus" :key="index" :index="subItem.index">
-          <template #title>
-            <el-icon><component v-if="subItem.icon" :is="subItem.icon"></component></el-icon>{{ subItem.title }}
-          </template>
-        </el-menu-item>
-      </el-sub-menu>
+      <framework-menu-item :menus="menus" />
     </el-menu>
   </el-scrollbar>
 </template>
@@ -29,6 +20,7 @@ import { computed } from 'vue'
 import { Menu as IconMenu } from '@element-plus/icons-vue'
 import router from '@/router'
 import store from '@/store'
+import FrameworkMenuItem from './FrameworkMenuItem.vue'
 const menus = computed(() => store.getters.menus)
 </script>
 <style scoped></style>
