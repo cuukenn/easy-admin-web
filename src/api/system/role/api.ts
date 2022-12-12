@@ -6,4 +6,5 @@ export const api = {
   create: Api.create('/role/create', 'post'),
   delete: Api.create('/role/delete', 'delete'),
   updateStatus: Api.create('/role/update/status', 'put'),
+  all: Api.create('/role/list/all', 'get'),
 }

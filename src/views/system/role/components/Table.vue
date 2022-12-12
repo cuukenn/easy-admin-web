@@ -13,8 +13,15 @@
           <el-switch v-model="scope.row.status" @change="handleStatusChange(scope.row)" />
         </template>
       </el-table-column>
-      <el-table-column fixed="right" label="操作" width="120">
+      <el-table-column fixed="right" label="操作" width="160">
         <template #default="scope">
+          <el-button
+            title="授权"
+            type="primary"
+            :icon="EditPen"
+            circle
+            @click="handleInvokeOption(scope.row.id, scope.row.name)"
+          />
           <el-button title="编辑" type="primary" :icon="Edit" circle @click="handleUpdateOption(scope.row.id)" />
           <el-popconfirm title="是否确认删除?" @confirm="handleDeleteOption(scope.row.id)">
             <template #reference>
@@ -42,14 +49,18 @@
   <el-dialog v-model="table.update.open" title="更新" width="30%" draggable @open="hanleUpdateOpen">
     <customer-update-form ref="refUpdateRole" @finish="refresh" :id="table.update.id" />
   </el-dialog>
+  <el-dialog v-model="table.invoke.open" title="授权" width="40%" draggable @open="handleInvokeOpen">
+    <customer-invoke-form ref="refInvoke" @finish="refresh" />
+  </el-dialog>
 </template>
 <script lang="ts" setup>
-import { Edit, Delete } from '@element-plus/icons-vue'
+import { Edit, Delete, EditPen } from '@element-plus/icons-vue'
 import { api } from '@/api/system/role/api'
 import { ElMessage } from 'element-plus'
 import { onMounted, reactive, ref } from 'vue'
 import CustomerAddForm from './AddForm.vue'
 import CustomerUpdateForm from './UpdateForm.vue'
+import CustomerInvokeForm from './InvokeForm.vue'
 const table = reactive({
   data: [],
   total: 0,
@@ -66,12 +77,19 @@ const table = reactive({
     open: false,
     id: '-1',
   },
+  invoke: {
+    open: false,
+    id: '-1',
+    name: '',
+  },
 })
 const refUpdateRole = ref()
+const refInvoke = ref()
 const refresh = () => {
   table.add.open = false
   table.update.open = false
   table.update.id = '-1'
+  table.invoke.open = false
   getList()
 }
 const getList = () => {
@@ -105,6 +123,14 @@ const handleDeleteOption = (id: any) => {
       })
     })
     .finally(refresh)
+}
+const handleInvokeOption = (id: any, name: string) => {
+  table.invoke.open = true
+  table.invoke.id = id
+  table.invoke.name = name
+}
+const handleInvokeOpen = () => {
+  refInvoke.value.init(table.invoke.id, table.invoke.name)
 }
 const handleStatusChange = (row: any) => {
   api.updateStatus
