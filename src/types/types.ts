@@ -9,3 +9,7 @@ export declare interface ApiPageReqVo {
   orderColumn?: string
   orderDesc?: boolean
 }
+export declare interface InvokeReqVo {
+  id?: any
+  ids?: Array<any>
+}
